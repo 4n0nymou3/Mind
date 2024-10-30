@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Mind Cleanser</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/font-face.css" rel="stylesheet">
+	<style>
+:root
+{
+	--bg-color: #1a1a1a;
+	--text-color: #e0e0e0;
+	--button-hover: #2c2c2c;
+	--textarea-bg: #252525;
+	--delete-button: #ff4444;
+	--delete-button-hover: #ff6666;
+	--counter-bg: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes breathe
+{
+	0%
+	{
+		opacity: 0.6;
+	}
+	
+	50%
+	{
+		opacity: 1;
+	}
+	
+	100%
+	{
+		opacity: 0.6;
+	}
+}
+
+@keyframes countChange
+{
+	0%
+	{
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+	
+	100%
+	{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+body
+{
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: Vazir, sans-serif;
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+.title
+{
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+	color: #fff;
+	animation: breathe 3s infinite ease-in-out;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.container
+{
+	width: 90%;
+	max-width: 800px;
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 2rem;
+	border-radius: 15px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.direction-controls
+{
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.direction-btn
+{
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: none;
+	border-radius: 6px;
+	background-color: var(--textarea-bg);
+	color: var(--text-color);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.direction-btn:hover
+{
+	background-color: var(--button-hover);
+}
+
+.textarea-container
+{
+	width: 100%;
+	margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+textarea
+{
+	width: 100%;
+	height: 300px;
+	padding: 1rem;
+	background-color: var(--textarea-bg);
+	color: var(--text-color);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	font-family: Vazir, sans-serif;
+	font-size: 1rem;
+	resize: none;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+	box-sizing: border-box;
+	padding-top: 3rem;
+}
+
+textarea:focus
+{
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.clear-btn
+{
+	width: 50%;
+	padding: 0.8rem 1.5rem;
+	background-color: var(--delete-button);
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-family: Vazir, sans-serif;
+	font-size: 0.9rem;
+	transition: all 0.3s ease;
+}
+
+.clear-btn:hover
+{
+	background-color: var(--delete-button-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(255, 68, 68, 0.2);
+}
+
+.footer
+{
+	margin-top: 2rem;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.active
+{
+	background-color: #444;
+}
+
+.char-counter
+{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: var(--counter-bg);
+	padding: 0.3rem 0.8rem;
+	border-radius: 15px;
+	font-size: 0.9rem;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	overflow: hidden;
+}
+
+.counter-number
+{
+	min-width: 20px;
+	text-align: center;
+	display: block;
+}
+
+.counter-animate
+{
+	animation: countChange 0.3s ease-out;
+}
+	</style>
+</head>
+
+<body>
+	<h1 class="title">Mind Cleanser</h1>
+	<div class="container">
+		<div class="direction-controls">
+			<button class="direction-btn active" onclick="setDirection('rtl')" title="راست به چپ"> ⇤ </button>
+			<button class="direction-btn" onclick="setDirection('ltr')" title="چپ به راست"> ⇥ </button>
+		</div>
+		<div class="textarea-container">
+			<textarea id="thoughtsArea" dir="rtl" placeholder="افکار خود را اینجا بنویسید..."></textarea>
+			<div class="char-counter">
+				<span id="charCount" class="counter-number">0</span>
+			</div>
+		</div>
+		<button class="clear-btn" onclick="clearThoughts()">پاک کردن از ذهن</button>
+	</div>
+	<div class="footer"> Designed by: Anonymous </div>
+	<script>
+function setDirection(dir)
+{
+	const textarea = document.getElementById('thoughtsArea');
+	textarea.dir = dir;
+	const buttons = document.querySelectorAll('.direction-btn');
+	buttons.forEach(btn => btn.classList.remove('active'));
+	event.target.classList.add('active');
+}
+
+function clearThoughts()
+{
+	const textarea = document.getElementById('thoughtsArea');
+	textarea.value = '';
+	textarea.focus();
+	updateCharCount();
+}
+
+function updateCharCount()
+{
+	const textarea = document.getElementById('thoughtsArea');
+	const counter = document.getElementById('charCount');
+	const newCount = textarea.value.length;
+	counter.classList.remove('counter-animate');
+	void counter.offsetWidth;
+	counter.classList.add('counter-animate');
+	counter.textContent = newCount;
+}
+document.getElementById('thoughtsArea')
+	.addEventListener('input', updateCharCount);
+	</script>
+</body>
+
+</html>
