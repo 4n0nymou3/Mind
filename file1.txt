@@ -1,1 +1,2 @@
 This is the first commit by UserA.
+This is the second commit by UserB.
