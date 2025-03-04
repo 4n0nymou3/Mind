@@ -1,1 +1,1 @@
-# Mind
+https://4n0nymou3.github.io/Mind
