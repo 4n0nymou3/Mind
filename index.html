@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Cleanser</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="title">Mind Cleanser</h1>
+        <div class="container">
+            <div class="direction-controls">
+                <button class="direction-btn active" data-direction="rtl" title="راست به چپ">⇤</button>
+                <button class="direction-btn" data-direction="ltr" title="چپ به راست">⇥</button>
+            </div>
+            <div class="textarea-container">
+                <textarea id="thoughtsArea" dir="rtl" placeholder="افکار خود را اینجا بنویسید..."></textarea>
+                <div class="char-counter">
+                    <span id="charCount" class="counter-number">0</span>
+                </div>
+            </div>
+            <button class="clear-btn">پاک کردن از ذهن</button>
+        </div>
+        <div class="footer">Designed by: Anonymous</div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
