@@ -9,7 +9,6 @@
     --border-radius: 12px;
 }
 
-/* Animations */
 @keyframes breathe {
     0%, 100% { opacity: 0.6; }
     50% { opacity: 1; }
@@ -35,7 +34,6 @@
     }
 }
 
-/* Global Resets */
 * {
     margin: 0;
     padding: 0;
@@ -156,8 +154,8 @@ textarea:focus {
 
 .char-counter {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     background-color: var(--counter-bg);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
@@ -206,7 +204,6 @@ textarea:focus {
     text-align: center;
 }
 
-/* Responsive Adjustments */
 @media screen and (max-width: 480px) {
     .app-container {
         padding: 0.5rem;
