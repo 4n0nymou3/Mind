@@ -154,23 +154,15 @@ textarea:focus {
 
 .char-counter {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -30px;
     right: 0;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.5rem;
-    background-color: transparent;
-    z-index: 1;
-}
-
-.char-counter span {
     background-color: var(--counter-bg);
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.9rem;
     backdrop-filter: blur(5px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
     transition: all 0.3s ease;
 }
 
