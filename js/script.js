@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCharCount() {
         const trimmedText = textarea.value.trim();
-        const newCount = trimmedText.length;
+        const newCount = textarea.value.length;
         
         charCounter.classList.remove('counter-animate');
         void charCounter.offsetWidth;
